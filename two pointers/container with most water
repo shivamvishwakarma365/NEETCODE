@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int n=height.size();
+        int a=0;
+        int b=n-1;
+        int maxi=0;
+        int mini;
+        while(a<b){
+            int niche=height[a];
+            int uppar=height[b];
+            mini=min(uppar,niche);
+            maxi=max(maxi,mini*(b-a));
+            if(niche<uppar){
+                a++;
+            }else{
+                b--;
+            }
+        }
+        return maxi;
+        
+    }
+};
